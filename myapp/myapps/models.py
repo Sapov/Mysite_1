@@ -19,6 +19,8 @@ class Organisation(models.Model):
     kpp = models.CharField(max_length=9, verbose_name='КПП')
     okpo = models.CharField(max_length=12, blank=True, verbose_name='ОКПО')
     published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Опубликовано')
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+
 
     class Meta:
         verbose_name_plural = 'Организации'
